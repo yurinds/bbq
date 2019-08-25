@@ -13,6 +13,9 @@ gem "nokogiri", ">= 1.10.4"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
+# Регистрация и авторизация на сайте
+gem 'devise', '~> 4.7.0'
+
 # В продакшне (на хероку) мы используем БД postrgres, 
 # поэтому нам нужен гем pg
 group :production do
