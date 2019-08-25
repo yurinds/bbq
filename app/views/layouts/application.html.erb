@@ -27,20 +27,31 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <%= link_to "Link1", "/path1"  %>
-              <%= link_to "Link2", "/path2"  %>
-              <%= link_to "Link3", "/path3"  %>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'Профиль ', current_user, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Выйти', destroy_user_session_path, class: 'nav-link', method: :delete %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to 'Войти ', new_user_session_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'nav-link' %>
+              </li>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <%= bootstrap_flash %>
+        <%= yield %>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
