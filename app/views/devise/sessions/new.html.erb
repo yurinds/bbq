@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-6 buffer-top">
+    <h2>Вход</h2>
+    <%= form_with(model: resource, as: resource_name, local: true, url: session_path(resource_name)) do |f| %>
+      <%= render partial: 'partials/form_errors', locals: {model: resource} %>
+      <div class="form-group">
+        <%= label_tag('exampleInputEmail1', 'Email', class: 'font-weight-bold') %>
+        <%= f.email_field :email, autofocus: true, 
+                              autocomplete: "email", 
+                              class: "form-control", 
+                              id:"exampleInputEmail1", 
+                              placeholder:"Email" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag('exampleInputPassword1', 'Пароль', class: 'font-weight-bold') %>
+        <% if @minimum_password_length %>
+          <em>(не менее <%= @minimum_password_length %> символов)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "current-password", 
+                                    class: "form-control", 
+                                    id: "exampleInputPassword1",
+                                    placeholder: "Пароль" %>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="form-group form-check">
+          <%= f.check_box :remember_me, class: "form-check-input", id: "exampleCheck1" %>
+          <%= label_tag('exampleCheck1', 'Запомнить меня', class: 'form-check-label') %>
+        </div>
+      <% end %>
+      <div class="actions">
+        <%= f.submit "Войти", class: 'btn btn-primary mb-2' %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
