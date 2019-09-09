@@ -1,11 +1,9 @@
-<%- if controller_name != 'sessions' %>
-  <nav class="nav">
+<nav class="nav">
+  <% if controller_name != 'sessions' %>
     <%= link_to "Войти", new_session_path(resource_name), class: "nav-link pl-0" %>
     <%= link_to "Забыли пароль?", new_password_path(resource_name), class: "nav-link pl-0" %>
-  </nav>
-<% end %>
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <nav class="nav">
+  <% end %>
+  <% if devise_mapping.registerable? && controller_name != 'registrations' %>
     <%= link_to "Регистрация", new_registration_path(resource_name), class: "nav-link pl-0" %>
-  </nav>
-<% end %>
+  <% end %>
+</nav>
