@@ -15,37 +15,11 @@
                               id:"exampleInputName1", 
                               placeholder:"Имя" %>
   </div>
-  <div class="form-group">
-    <%= label_tag('exampleInputPassword1', 'Пароль', class: 'font-weight-bold') %>
-    <%= label_tag('exampleInputPassword1', '(оставьте пустым, если не хотите изменять)', class: 'font-italic') %>
-    <% if @minimum_password_length %>
-      <em>(не менее <%= @minimum_password_length %> символов)</em>
-    <% end %>
-    <%= f.password_field :password, class: "form-control", 
-                                    id: "exampleInputPassword1",
-                                    placeholder: "Пароль" %>
-  </div>
-  <div class="form-group">
-    <%= label_tag('exampleInputPassword2', 'Подтверждение пароля', class: 'font-weight-bold') %>
-    <%= f.password_field :password_confirmation, class: "form-control", 
-                                                 id: "exampleInputPassword2",
-                                                 placeholder: "Подтверждение пароля" %>
-  </div>
-  <div class="form-group">
-    <%= label_tag('exampleInputPassword3', 'Текущий пароль', class: 'font-weight-bold') %>
-    <%= label_tag('exampleInputPassword3', '(требуется текущий пароль)', class: 'font-italic') %>
-    <%= f.password_field :current_password, class: "form-control", 
-                                            id: "exampleInputPassword3",
-                                            placeholder: "Текущий пароль" %>
-  </div>
   <div class="actions">
     <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
     или <%= link_to 'вернуться', :back %>
   </div>
 <% end %>
-<h3 class='buffer-top'>Удалить аккаунт</h3>
-<p class = 'font-weight-light'>Всё достало? <%= button_to "Удалить аккаунт", registration_path(@user), 
-                                                                           data: { confirm: "Вы уверены?" }, 
-                                                                           method: :delete,
-                                                                           class: 'btn btn-danger' %>
-</p>
+<div class="mt-3">
+  <%= link_to 'Сменить пароль', edit_user_registration_path %>
+</div>
