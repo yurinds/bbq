@@ -35,3 +35,8 @@ ru:
     one: '%{count} ошибка'
     few: '%{count} ошибки'
     many: '%{count} ошибок'
+
+  event:
+    destroy_button: 'Удалить событие'  
+    destroy_confirmation: 'Вы уверены, что хотите удалить событие?'
+    change: 'Изменить'
