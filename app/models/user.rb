@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable
 
   has_many :events
+  has_many :comments, dependent: :destroy
 
   before_validation :set_name, on: :create
 
