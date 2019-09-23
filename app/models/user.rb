@@ -8,8 +8,7 @@ class User < ApplicationRecord
 
   has_many :events
   has_many :comments, dependent: :destroy
-
-  before_validation :set_name, on: :create
+  has_many :subscriptions
 
   # Имя не не более 35 символов
   validates :name, presence: true, length: { maximum: 35 }
@@ -17,8 +16,4 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   private
-
-  def set_name
-    self.name = "Товарисч №#{rand(777)}" if name.blank?
-  end
 end
