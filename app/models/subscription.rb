@@ -13,6 +13,7 @@ class Subscription < ApplicationRecord
   validates :user, absence: { message: I18n.t('subscription.user_absence') },
                    if: -> { user.present? && user == event.user }
 
+  validate :email_cannot_belong_to_user, unless: -> { user.present? }
   validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
 
   def user_name
@@ -28,6 +29,12 @@ class Subscription < ApplicationRecord
       user.email
     else
       super
+    end
+  end
+
+  def email_cannot_belong_to_user
+    if User.where(email: user_email).present?
+      errors.add(:user_email, I18n.t('subscription.email_cannot_belong_to_user'))
     end
   end
 end

@@ -69,3 +69,4 @@ ru:
   subscription:
     user_absence: 'не может подписаться на это событие!'
     already_subscribed: 'уже подписан на это событие!'
+    email_cannot_belong_to_user: 'не может совпадать с адресом зарегестрированного пользователя!'
