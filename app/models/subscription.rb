@@ -7,7 +7,12 @@ class Subscription < ApplicationRecord
   validates :user_name, presence: true, unless: -> { user.present? }
   validates :user_email, presence: true, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/, unless: -> { user.present? }
 
-  validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
+  validates :user, uniqueness: { scope: :event_id,
+                                 message: I18n.t('subscription.already_subscribed') },
+                   if: -> { user.present? }
+  validates :user, absence: { message: I18n.t('subscription.user_absence') },
+                   if: -> { user.present? && user == event.user }
+
   validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
 
   def user_name

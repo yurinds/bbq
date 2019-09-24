@@ -5,6 +5,8 @@ ru:
     models:
       user: 'Пользователь'
       event: 'Событие'
+      subscription: 'Подписка'
+      comment: 'Комментарий'
 
     # Перевод атрибутов моделей
     attributes:
@@ -64,4 +66,6 @@ ru:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
     form:
       subscribe: 'Подписаться'
-    
+  subscription:
+    user_absence: 'не может подписаться на это событие!'
+    already_subscribed: 'уже подписан на это событие!'
