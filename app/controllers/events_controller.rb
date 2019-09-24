@@ -12,7 +12,10 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-  def show; end
+  def show
+    @new_comment = @event.comments.build(params[:comment])
+    @new_subscription = @event.subscriptions.build(params[:subscription])
+  end
 
   def new
     @event = current_user.events.build
@@ -24,7 +27,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
     if @event.save
-      redirect_to @event, notice: I18n.t('controllers.events.created')
+      redirect_to @event, notice: I18n.t('.events.created')
     else
       render :new
     end
@@ -32,7 +35,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to @event, notice: I18n.t('controllers.events.updated')
+      redirect_to @event, notice: I18n.t('.events.updated')
     else
       render :edit
     end
@@ -40,7 +43,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_url, notice: I18n.t('controllers.events.destroyed')
+    redirect_to events_url, notice: I18n.t('.events.destroyed')
   end
 
   private

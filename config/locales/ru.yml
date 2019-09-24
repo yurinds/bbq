@@ -18,16 +18,22 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      comment:
+        body: 'Текст'
+        user_name: 'Имя пользователя'
+      subscription:
+        user: 'Пользователь'
+        user_name: 'Имя пользователя'
+        user_email: 'Электронная почта'
 
   # Перевод сообщений контроллеров
-  controllers:
-    events:
-      created: 'Вы создали новое мероприятие'
-      updated: 'Вы обновили мероприятие'
-      destroyed: 'Вы удалили мероприятие :('
-    users:
+  events:
+    created: 'Вы создали новое мероприятие'
+    updated: 'Вы обновили мероприятие'
+    destroyed: 'Вы удалили мероприятие :('
+  users:
       updated: 'Вы обновили свой профиль'
-
+      
   app:
     name: 'Шашлыки'
 
@@ -41,16 +47,21 @@ ru:
     destroy_confirmation: 'Вы уверены, что хотите удалить событие?'
     change: 'Изменить'
 
-comments:
-  destroyed: 'Комментарий удален'
-  created: 'Ваш комментарий добавлен'
-  error: 'Ошибка с комментарием'
-  comment:
-    destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
-
-subscriptions:
-  created: 'Вы подписаны на это событие'
-  destroyed: 'Участник отписан'
-  error: 'Подписка/отписка не сработала'
-  subscription:
-    destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+  comments:
+    destroyed: 'Комментарий удален'
+    created: 'Ваш комментарий добавлен'
+    error: 'Ошибка с комментарием'
+    comment:
+      destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+    form:
+      send: 'Отправить'
+  
+  subscriptions:
+    created: 'Вы подписаны на это событие'
+    destroyed: 'Участник отписан'
+    error: 'Подписка/отписка не сработала'
+    subscription:
+      destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+    form:
+      subscribe: 'Подписаться'
+    
