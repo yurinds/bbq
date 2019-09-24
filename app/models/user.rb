@@ -15,5 +15,9 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  private
+  after_commit :link_subscriptions, on: :create
+
+  def link_subscriptions
+    Subscription.where(user_id: nil, user_email: email).update_all(user_id: id)
+  end
 end

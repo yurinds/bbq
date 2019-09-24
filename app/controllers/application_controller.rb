@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
       :account_update,
       keys: %i[password password_confirmation current_password]
     )
+    devise_parameter_sanitizer.permit(:sign_up,
+                                      keys: %i[name email password password_confirmation])
   end
 
   def current_user_can_edit?(model)
