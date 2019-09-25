@@ -2,7 +2,7 @@
 <% if errors.any? %>
   <div class="alert alert-danger alert-dismissible fade show mt-3">
     <div class="lead buffer-bottom">
-      Обнаружена <%= I18n.t(:error, count: errors.count) %>
+      <%= I18n.t(:error, count: errors.count) %>
       <%# declination(errors.count, 'ошибка', 'ошибки', 'ошибок') %>
     </div>
     <ul>
