@@ -10,8 +10,7 @@ class Subscription < ApplicationRecord
   validates :user, uniqueness: { scope: :event_id,
                                  message: I18n.t('subscription.already_subscribed') },
                    if: -> { user.present? }
-  validates :user, absence: { message: I18n.t('subscription.user_absence') },
-                   if: -> { user.present? && user == event.user }
+  validate :user_cannot_subscribe_to_his_event
 
   validate :email_cannot_belong_to_registred_user, unless: -> { user.present? }
   validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
@@ -29,6 +28,13 @@ class Subscription < ApplicationRecord
       user.email
     else
       super
+    end
+  end
+
+  def user_cannot_subscribe_to_his_event
+    # нельзя подписываться на свои события
+    if user.present? && user == event.user
+      errors.add(:user, I18n.t('subscription.user_absence'))
     end
   end
 
