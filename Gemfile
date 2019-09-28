@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 # загрузка и обработка картинок
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog-aws'
 
 # Регистрация и авторизация на сайте
 gem "devise", ">= 4.7.1"
@@ -28,7 +29,6 @@ gem 'devise-i18n'
 # поэтому нам нужен гем pg
 group :production do
   gem 'pg'
-  gem 'fog'
 end
 
 group :development, :test do
