@@ -34,9 +34,11 @@
   <div class="row">
     <div class="col-md-8">
       <div class="event-photos">
-        <div class="event-photo-form">
-          <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
-        </div>
+        <% if current_user %>
+          <div class="event-photo-form">
+            <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+          </div>
+        <% end %>
         <div class="event-photos-gallery">
           <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
         </div>
