@@ -13,6 +13,10 @@ gem "nokogiri", ">= 1.10.4"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
+# загрузка и обработка картинок
+gem 'carrierwave'
+gem 'rmagick'
+
 # Регистрация и авторизация на сайте
 gem "devise", ">= 4.7.1"
 

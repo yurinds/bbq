@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def user_avatar(_user)
-    asset_path('user.png')
+  def user_avatar(user)
+    if user.avatar?
+      user.avatar.url
+    else
+      asset_path('user.png')
+    end
   end
 
   def fa_icon(icon_class)
