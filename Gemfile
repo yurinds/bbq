@@ -28,6 +28,7 @@ gem 'devise-i18n'
 # поэтому нам нужен гем pg
 group :production do
   gem 'pg'
+  gem 'fog'
 end
 
 group :development, :test do
