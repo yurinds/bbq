@@ -1,6 +1,6 @@
 <div class="text-center">
-  <%= image_tag user_avatar(@user) %>
   <h1><%= @user.name %></h1>
+  <%= image_tag user_avatar(@user) %>
   <p class="buffer-top">
     <% if @user == current_user %>
       <p class="buffer-top"><%= link_to 'Редактировать профиль', edit_user_path, class: 'btn btn-secondary' %></p>
