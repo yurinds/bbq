@@ -1,0 +1,7 @@
+Новое фото
+----
+Автор: <%= @photo.user.name %>
+----------------------
+Событие: <%= @event.title %>
+Состоится: <%= l @event.datetime, format: :short %>
+Организатор: <%= @event.user.name %>
