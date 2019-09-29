@@ -47,11 +47,8 @@ class CommentsController < ApplicationController
   def notify_subscribers(event, comment)
     all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq
 
-    # По адресам из этого массива делаем рассылку
-    # Как и в подписках, берём EventMailer и его метод comment с параметрами
-    # И отсылаем в том же потоке
     all_emails.each do |mail|
-      EventMailer.comment(event, comment, mail).deliver_now
+      SendEmailCommentJob.set(wait: 10.seconds).perform_later(event, comment, mail)
     end
   end
 end
