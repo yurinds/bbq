@@ -78,3 +78,18 @@ ru:
     user_absence: 'не может подписаться на это событие!'
     already_subscribed: 'уже подписан на это событие!'
     email_cannot_belong_to_user: 'не может совпадать с адресом зарегестрированного пользователя!'
+  event_mailer:
+    comment:
+      title: 'Новый комментарий'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    subscription:
+      title: 'Новая подписка'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'

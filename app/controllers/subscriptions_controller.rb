@@ -10,6 +10,8 @@ class SubscriptionsController < ApplicationController
     @new_subscription.user = current_user
 
     if @new_subscription.save
+      EventMailer.subscription(@event, @new_subscription).deliver_now
+
       # Если сохранилась, редиректим на страницу самого события
       redirect_to @event, notice: I18n.t('.subscriptions.created')
     else
