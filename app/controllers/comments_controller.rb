@@ -45,16 +45,10 @@ class CommentsController < ApplicationController
   end
 
   def notify_subscribers(event, comment)
-    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email] - comment_user_email_array(comment)).uniq
+    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email] - [current_user.email]).uniq
 
     all_emails.each do |mail|
-      SendEmailCommentJob.set(wait: 10.seconds).perform_later(event, comment, mail)
+      EventMailer.comment(event, comment, mail).deliver_later
     end
-  end
-
-  def comment_user_email_array(comment)
-    return [] unless comment.user.present?
-
-    [comment.user.email]
   end
 end
