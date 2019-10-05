@@ -55,3 +55,8 @@
 .thumbnail-inner {
   padding: 20px 4px 4px;
 }
+
+#map>ymaps {
+  border-radius: 50px;
+  overflow: hidden;
+}
