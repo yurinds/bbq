@@ -1,10 +1,14 @@
 <%= form_with model: [@event, photo], local: true do |f| %>
   <%= render partial: 'partials/form_errors', locals: {model: photo} %>
-  <div class="form-group">
-    <%= f.label :photo %>
-    <%= f.file_field :photo %>
+
+  <div class="input-group">
+    <div class="custom-file">
+      <%= f.file_field :photo, class: "custom-file-input", id: "inputGroupFile01", aria: { describedby: "inputGroupFileAddon01"} %>
+      <%=label_tag "inputGroupFile01", 'Выберите фотографию', class: "custom-file-label"%>
+    </div>
+    <div class="input-group-append">
+      <%= f.submit 'Загрузить', class: 'btn btn-outline-primary',  id:"inputGroupFileAddon01" %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit 'Загрузить', class: 'btn btn-primary' %>
-  </div>
+
 <% end %>

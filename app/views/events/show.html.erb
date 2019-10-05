@@ -4,7 +4,7 @@
       <%= content_tag 'div', '', class: 'event-background',
         style: "background-image: url(#{event_photo(@event)})" %>
       <div class="event-info-inner row">
-        <div class="col-md-6">
+        <div class="col-md-6 pt-4">
           <div class="event-description">
             <h1><%= @event.title %></h1>
             <h3><%= l @event.datetime, format: :short %></h3>
@@ -36,17 +36,27 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="event-photos">
-        <% if current_user %>
-          <div class="event-photo-form">
-            <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+
+        <div class="mb-2">
+          <%#Галерея фото%>
+          <div class="row">
+            <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo).first_six %>
+            <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo).seven_and_all, 
+                                                locals: { render_hidden_image: true } %>
           </div>
-        <% end %>
-        <div class="event-photos-gallery">
-          <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+
+          <% if current_user %>
+            <%#Поле с добавлением фото%>
+            <div class="event-photo-form">
+              <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+            </div>
+          <% end %>
+
         </div>
+
       </div>
       <div class="event-comments buffer-top">
         <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>

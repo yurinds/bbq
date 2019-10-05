@@ -49,14 +49,14 @@
   white-space: nowrap;
   overflow: hidden;
   margin-top: 0;
-  margin-bottom: .3em;
+  margin-bottom: 0.3em;
 }
 
 .thumbnail-inner {
   padding: 20px 4px 4px;
 }
 
-#map>ymaps {
+#map > ymaps {
   border-radius: 50px;
   overflow: hidden;
 }
