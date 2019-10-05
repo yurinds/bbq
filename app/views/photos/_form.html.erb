@@ -3,11 +3,11 @@
 
   <div class="input-group">
     <div class="custom-file">
-      <%= f.file_field :photo, class: "custom-file-input", id: "inputGroupFile01", aria: { describedby: "inputGroupFileAddon01"} %>
-      <%=label_tag "inputGroupFile01", 'Выберите фотографию', class: "custom-file-label"%>
+      <%= f.file_field :photo,  class: "custom-file-input", id: "inputGroupFile", aria: { describedby: "inputGroupFileAddon"} %>
+      <%=label_tag "exampleInputFile", 'Выберите фотографию', data: {browse: "Обзор"}, class: "custom-file-label"%>
     </div>
     <div class="input-group-append">
-      <%= f.submit 'Загрузить', class: 'btn btn-outline-primary',  id:"inputGroupFileAddon01" %>
+      <%= f.submit 'Загрузить', class: 'btn btn-outline-primary', id:"inputGroupFileAddon" %>
     </div>
   </div>
 

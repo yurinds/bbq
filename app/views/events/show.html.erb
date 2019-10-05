@@ -50,7 +50,8 @@
 
           <% if current_user %>
             <%#Поле с добавлением фото%>
-            <div class="event-photo-form">
+            <button type="button" id="upload-button" class="btn btn-link px-0 mx-0">Загрузить фотки</button>
+            <div class="event-photo-form" id="upload-photo" style="display:none">
               <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
             </div>
           <% end %>

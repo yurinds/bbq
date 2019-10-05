@@ -18,3 +18,22 @@ $(document).on("click", '[data-toggle="lightbox"]', function(event) {
   event.preventDefault();
   $(this).ekkoLightbox();
 });
+$(document).on(
+  "change",
+  '[aria-describedby="inputGroupFileAddon"]',
+  function() {
+    //get the file name
+    var fileName = document.getElementById("inputGroupFile").files[0].name;
+    //replace the "Choose a file" label
+    $(this)
+      .next(".custom-file-label")
+      .html(fileName);
+  }
+);
+
+$(function() {
+  $("#upload-button").click(function() {
+    $("#upload-photo").slideToggle(300);
+    return false;
+  });
+});

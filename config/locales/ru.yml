@@ -3,102 +3,106 @@ ru:
   activerecord:
     # Перевод названия моделей
     models:
-      user: 'Пользователь'
-      event: 'Событие'
-      subscription: 'Подписка'
-      comment: 'Комментарий'
-      photo: 'Фотография'
+      user: "Пользователь"
+      event: "Событие"
+      subscription: "Подписка"
+      comment: "Комментарий"
+      photo: "Фотография"
 
     # Перевод атрибутов моделей
     attributes:
       user:
-        email: 'Email'
-        name: 'Имя'
-        avatar: 'Аватарка'
-        password: 'Пароль'
-        password_confirmation: 'Подтверждение пароля'
+        email: "Email"
+        name: "Имя"
+        avatar: "Аватарка"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
       event:
-        title: 'Название'
-        address: 'Место проведения'
-        datetime: 'Дата и время'
-        description: 'Описание'
-        pincode: 'Пин-код доступа'
+        title: "Название"
+        address: "Место проведения"
+        datetime: "Дата и время"
+        description: "Описание"
+        pincode: "Пин-код доступа"
       comment:
-        body: 'Текст'
-        user_name: 'Имя пользователя'
+        body: "Текст"
+        user_name: "Имя пользователя"
       subscription:
-        user: 'Пользователь'
-        user_name: 'Имя пользователя'
-        user_email: 'Электронная почта'
+        user: "Пользователь"
+        user_name: "Имя пользователя"
+        user_email: "Электронная почта"
       photo:
-          photo: 'Фотография'
-          
+        photo: "Фотография"
+
   # Перевод сообщений контроллеров
   events:
-    created: 'Вы создали новое мероприятие'
-    updated: 'Вы обновили мероприятие'
-    destroyed: 'Вы удалили мероприятие :('
-    wrong_pincode: 'Неверный пин-код!'
-    confirm: 'Отправить'
+    created: "Вы создали новое мероприятие"
+    updated: "Вы обновили мероприятие"
+    destroyed: "Вы удалили мероприятие :("
+    wrong_pincode: "Неверный пин-код!"
+    confirm: "Отправить"
   users:
-      updated: 'Вы обновили свой профиль'
+    updated: "Вы обновили свой профиль"
   photos:
-    error: 'Что-то не так с фоткой'
-    created: 'Вы добавили фотографию к событию'
-    destroyed: 'Вы удалили фотку'    
-  
+    error: "Что-то не так с фоткой"
+    created: "Вы добавили фотографию к событию"
+    destroyed: "Вы удалили фотку"
+
   app:
-    name: 'Шашлыки'
+    name: "Шашлыки"
 
   error:
-    one: '%{count} ошибка'
-    few: '%{count} ошибки'
-    many: '%{count} ошибок'
+    one: "%{count} ошибка"
+    few: "%{count} ошибки"
+    many: "%{count} ошибок"
 
   event:
-    destroy_button: 'Удалить событие'  
-    destroy_confirmation: 'Вы уверены, что хотите удалить событие?'
-    change: 'Изменить'
+    destroy_button: "Удалить событие"
+    destroy_confirmation: "Вы уверены, что хотите удалить событие?"
+    change: "Изменить"
 
   comments:
-    destroyed: 'Комментарий удален'
-    created: 'Ваш комментарий добавлен'
-    error: 'Ошибка с комментарием'
+    destroyed: "Комментарий удален"
+    created: "Ваш комментарий добавлен"
+    error: "Ошибка с комментарием"
     comment:
-      destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+      destroy_confirm: "Вы уверены, что хотите удалить этот комментарий?"
     form:
-      send: 'Отправить'
-  
+      send: "Отправить"
+
   subscriptions:
-    created: 'Вы подписаны на это событие'
-    destroyed: 'Участник отписан'
-    error: 'Подписка/отписка не сработала'
+    created: "Вы подписаны на это событие"
+    destroyed: "Участник отписан"
+    error: "Подписка/отписка не сработала"
     subscription:
-      destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+      destroy_confirm: "Вы уверены, что хотите удалить эту подписку?"
     form:
-      subscribe: 'Подписаться'
+      subscribe: "Подписаться"
   subscription:
-    user_absence: 'не может подписаться на это событие!'
-    already_subscribed: 'уже подписан на это событие!'
-    email_cannot_belong_to_user: 'не может совпадать с адресом зарегестрированного пользователя!'
+    user_absence: "не может подписаться на это событие!"
+    already_subscribed: "уже подписан на это событие!"
+    email_cannot_belong_to_user: "не может совпадать с адресом зарегестрированного пользователя!"
   event_mailer:
     comment:
-      title: 'Новый комментарий'
-      author: 'Автор'
-      event: 'Событие'
-      datetime: 'Состоится'
-      owner: 'Организатор'
+      title: "Новый комментарий"
+      author: "Автор"
+      event: "Событие"
+      datetime: "Состоится"
+      owner: "Организатор"
     subscription:
-      title: 'Новая подписка'
-      name: 'Имя'
-      email: 'Email'
-      author: 'Автор'
-      event: 'Событие'
-      datetime: 'Состоится'
-      owner: 'Организатор'
+      title: "Новая подписка"
+      name: "Имя"
+      email: "Email"
+      author: "Автор"
+      event: "Событие"
+      datetime: "Состоится"
+      owner: "Организатор"
     photo:
-      title: 'Новое фото'
-      author: 'Автор'
-      event: 'Событие'
-      datetime: 'Состоится'
-      owner: 'Организатор'
+      title: "Новое фото"
+      author: "Автор"
+      event: "Событие"
+      datetime: "Состоится"
+      owner: "Организатор"
+
+  errors:
+    messages:
+      extension_whitelist_error: "выбран недопустимый тип файла!"
