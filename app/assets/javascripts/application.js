@@ -12,12 +12,14 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require owl.carousel
 //= require_tree .
 
 $(document).on("click", '[data-toggle="lightbox"]', function(event) {
   event.preventDefault();
   $(this).ekkoLightbox();
 });
+
 $(document).on(
   "change",
   '[aria-describedby="inputGroupFileAddon"]',
@@ -35,5 +37,24 @@ $(function() {
   $("#upload-button").click(function() {
     $("#upload-photo").slideToggle(300);
     return false;
+  });
+});
+
+$(document).ready(function() {
+  $(".owl-carousel").owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 3
+      },
+      1000: {
+        items: 5
+      }
+    }
   });
 });

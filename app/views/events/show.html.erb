@@ -42,15 +42,13 @@
 
         <div class="mb-2">
           <%#Галерея фото%>
-          <div class="row">
-            <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo).first_six %>
-            <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo).seven_and_all, 
-                                                locals: { render_hidden_image: true } %>
+          <div class="owl-carousel owl-theme">
+            <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
           </div>
 
           <% if current_user %>
             <%#Поле с добавлением фото%>
-            <button type="button" id="upload-button" class="btn btn-link px-0 mx-0">Загрузить фотки</button>
+            <button type="button" id="upload-button" class="btn btn-link px-0 mx-0">Загрузить фотографии</button>
             <div class="event-photo-form" id="upload-photo" style="display:none">
               <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
             </div>

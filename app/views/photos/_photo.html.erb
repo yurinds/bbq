@@ -1,18 +1,8 @@
-<% render_hidden_image ||= nil %>
-
-<% unless render_hidden_image  %>
-  <% image_title = "Добавил #{render partial: 'users/user', object: photo.user}" %>
-
+<% image_title = "Добавил #{render partial: 'users/user', object: photo.user}" %>
+<div class="item">
   <%= link_to image_tag(photo.photo.url, class: "img-fluid"), photo.photo.url, class: "col-sm-4 mb-2", 
        data: {
         toggle: "lightbox", 
         gallery: "example-gallery", 
         title: image_title} %>
-<% else %>
-  <%= content_tag :div, '',
-    data: {
-      toggle: "lightbox", 
-      gallery: "example-gallery", 
-      title: image_title,
-      remote: "#{photo.photo.url}"}%>
-<% end %>
+</div>

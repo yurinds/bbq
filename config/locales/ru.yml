@@ -24,7 +24,7 @@ ru:
         description: "Описание"
         pincode: "Пин-код доступа"
       comment:
-        body: "Текст"
+        body: "Комментарий"
         user_name: "Имя пользователя"
       subscription:
         user: "Пользователь"

@@ -18,6 +18,9 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-aws'
 
+# карусель 
+gem 'owlcarousel-rails'
+
 # Регистрация и авторизация на сайте
 gem "devise", ">= 4.7.1"
 
