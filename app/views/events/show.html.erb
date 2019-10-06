@@ -42,9 +42,11 @@
 
         <div class="mb-2">
           <%#Галерея фото%>
-          <div class="owl-carousel owl-theme">
-            <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
-          </div>
+          <% if @event.photos.except(@new_photo).any? %>
+            <div class="owl-carousel owl-theme">
+              <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+            </div>
+          <% end %>
 
           <% if current_user %>
             <%#Поле с добавлением фото%>
@@ -57,7 +59,7 @@
         </div>
 
       </div>
-      <div class="event-comments buffer-top">
+      <div class="event-comments">
         <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>
         <div class="buffer-both">
           <%= render partial: 'comments/comment', collection: @event.comments.except(@new_comment) %>
