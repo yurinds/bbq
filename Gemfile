@@ -34,9 +34,6 @@ group :production do
   gem 'pg'
 end
 
-# Скрываем логин/пароль
-gem 'figaro'
-
 # работа с фоновыми заданиями
 gem 'delayed_job_active_record'
 
