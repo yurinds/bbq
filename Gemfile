@@ -18,6 +18,9 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-aws'
 
+# авторизация пользователей 
+gem 'pundit'
+
 # карусель 
 gem 'owlcarousel-rails'
 

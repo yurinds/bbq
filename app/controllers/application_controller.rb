@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include Pundit
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   helper_method :current_user_can_edit?
@@ -19,5 +23,18 @@ class ApplicationController < ActionController::Base
       model.user == current_user ||
       (model.try(:event).present? && model.event.user == current_user)
     )
+  end
+
+  private
+
+  def user_not_authorized
+    if current_user
+      flash[:alert] = t('pundit.access_denied')
+      redirect_to @event
+    else
+      flash[:alert] = t('pundit.not_authorized')
+      redirect_to(new_user_session_path)
+
+    end
   end
 end

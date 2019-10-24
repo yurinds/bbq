@@ -106,3 +106,7 @@ ru:
   errors:
     messages:
       extension_whitelist_error: "выбран недопустимый тип файла!"
+
+  pundit:
+    not_authorized: "Вам необходимо войти в систему или зарегистрироваться."
+    access_denied: "Доступ запрещен!"
