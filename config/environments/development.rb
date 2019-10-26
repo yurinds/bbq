@@ -29,6 +29,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.action_mailer.delivery_method = :letter_opener
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
 
@@ -44,6 +46,8 @@ Rails.application.configure do
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
+
+  config.active_job.queue_adapter = :inline
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
