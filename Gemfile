@@ -31,6 +31,10 @@ gem "devise", ">= 4.7.1"
 gem 'rails-i18n', '~> 5.1' 
 gem 'devise-i18n'
 
+# Аутентификация
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # В продакшне (на хероку) мы используем БД postrgres, 
 # поэтому нам нужен гем pg
 group :production do
