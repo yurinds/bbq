@@ -260,8 +260,22 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :facebook, Rails.application.credentials.facebook[:development][:omniauth_facebook_id],
-                  Rails.application.credentials.facebook[:development][:omniauth_facebook_secret]
+
+  if Rails.env.production?
+    config.omniauth :facebook, Rails.application.credentials.facebook[:production][:omniauth_id],
+                    Rails.application.credentials.facebook[:production][:omniauth_secret]
+
+    config.omniauth :vkontakte, Rails.application.credentials.vkontakte[:production][:omniauth_id],
+                    Rails.application.credentials.vkontakte[:production][:omniauth_secret],
+                    scope: 'email'
+  else
+    config.omniauth :facebook, Rails.application.credentials.facebook[:development][:omniauth_id],
+                    Rails.application.credentials.facebook[:development][:omniauth_secret]
+
+    config.omniauth :vkontakte, Rails.application.credentials.vkontakte[:development][:omniauth_id],
+                    Rails.application.credentials.vkontakte[:development][:omniauth_secret],
+                    scope: 'email'
+  end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

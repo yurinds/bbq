@@ -5,11 +5,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable,
-         :omniauthable, omniauth_providers: [:facebook]
+         :omniauthable, omniauth_providers: %i[facebook vkontakte]
 
   has_many :events
   has_many :comments, dependent: :destroy
   has_many :subscriptions
+  has_many :identities, dependent: :destroy
 
   # Имя не не более 35 символов
   validates :name, presence: true, length: { maximum: 35 }
@@ -28,26 +29,36 @@ class User < ApplicationRecord
     devise_mailer.send(notification, self, *args).deliver_later
   end
 
-  def self.find_for_facebook_oauth(access_token)
-    # Достаём email из токена
-    email = access_token.info.email
+  def self.find_or_create_by_omniauth(params)
+    provider = params[:provider]
+    url = params[:url]
+    email = params[:email]
+
+    user_identity = Identity.find_identity(url, provider)
+
+    return user_identity.user if user_identity.present?
+
+    return nil unless email
+
     user = where(email: email).first
 
-    # Возвращаем, если нашёлся
-    return user if user.present?
+    if user.present?
+      user.identities.create!(url: url, provider: provider)
 
-    # Если не нашёлся, достаём провайдера, айдишник и урл
-    provider = access_token.provider
-    id = access_token.extra.raw_info.id
-    url = "https://facebook.com/#{id}"
-
-    # Теперь ищем в базе запись по провайдеру и урлу
-    # Если есть, то вернётся, если нет, то будет создана новая
-    where(url: url, provider: provider).first_or_create! do |user|
-      # Если создаём новую запись, прописываем email и пароль
-      user.name = 'Товарисч'
-      user.email = email
-      user.password = Devise.friendly_token.first(16)
+      return user
     end
+
+    User.transaction do
+      user = User.create!(
+        name: params[:name] || "Товарисч #{rand(999)}",
+        email: email,
+        password: Devise.friendly_token.first(16)
+      )
+      user.identities.create!(url: url, provider: provider)
+    rescue StandardError
+      return nil
+    end
+
+    user
   end
 end

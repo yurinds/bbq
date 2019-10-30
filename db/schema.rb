@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_27_195217) do
+ActiveRecord::Schema.define(version: 2019_10_30_193436) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2019_10_27_195217) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "identities", force: :cascade do |t|
+    t.string "url"
+    t.string "provider"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_identities_on_user_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string "photo"
     t.integer "event_id"
@@ -86,8 +95,6 @@ ActiveRecord::Schema.define(version: 2019_10_27_195217) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.string "avatar"
-    t.string "provider"
-    t.string "url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
