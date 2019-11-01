@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   root 'events#index'
 
+  get '/pages/:page' => 'pages#show'
+
   resources :events do
     resources :comments, only: %i[create destroy]
     resources :subscriptions, only: %i[create destroy]
