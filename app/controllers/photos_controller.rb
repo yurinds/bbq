@@ -10,7 +10,7 @@ class PhotosController < ApplicationController
     @new_photo.user = current_user
 
     if @new_photo.save
-      PhotoNotifySubscribersJob.perform_later(@event, @new_photo)
+      MailNotifierJob.perform_later('photo', @new_photo)
 
       redirect_to @event, notice: I18n.t('.photos.created')
     else
