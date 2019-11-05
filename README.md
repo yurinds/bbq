@@ -9,8 +9,9 @@
 - Авторизация с помощью `pundit`;
 - Дизайн и оформление с помощью `bootstrap 4`;
 - Отображение изображений реализовано с помощью `owlcarousel` и `lightbox`;
-- `ActionMailer`, `ActiveJob` и `Sendgrid` для отправки уведомлений;
+- `ActionMailer`, `ActiveJob` и `Sendgrid` для отправки email уведомлений;
 - `Carrierwave`, `rmagick` и `AWS S3` для загрузки и хранения изображений;
+- Яндекс карты для определения места проведения события;
 - деплой на VPS с помощью `Capistrano`.
 
 Требуемая версия Ruby и Rails:
