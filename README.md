@@ -1,24 +1,62 @@
-# README
+# BBQ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+В этом приложении вы можете создать событие и пригласить своих друзей. К событию можно оставлять комментарии и прикреплять фотографии.
 
-Things you may want to cover:
+Используемые технологии:
 
-* Ruby version
+- Аутентификация с использованием гема `devise`;
+- Аутентификация через соц. сети `Vkontakte` и `Facebook`;
+- Авторизация с помощью `pundit`;
+- Дизайн и оформление с помощью `bootstrap 4`;
+- Отображение изображений реализовано с помощью `owlcarousel` и `lightbox`;
+- `ActionMailer`, `ActiveJob` и `Sendgrid` для отправки уведомлений;
+- `Carrierwave`, `rmagick` и `AWS S3` для загрузки и хранения изображений;
+- деплой на VPS с помощью `Capistrano`.
 
-* System dependencies
+Требуемая версия Ruby и Rails:
 
-* Configuration
+```
+ruby >= 2.5.1
+rails ~> 5.2.3
+```
 
-* Database creation
+Для запуска выполните следующие шаги:
 
-* Database initialization
+1. Установите `Bundler`, если он ещё не установлен:
 
-* How to run the test suite
+```
+gem install bundler
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+2. Склонируйте репозиторий:
 
-* Deployment instructions
+```
+git clone https://github.com/yurinds/bbq.git
 
-* ...
+# переход в папку с приложением
+cd bbq
+```
+
+3. Установите все зависимости:
+
+```
+bundle install
+```
+
+4. Выполните миграции БД:
+
+```
+bundle exec rails db:migrate
+```
+
+5. Запустите сервер приложения:
+
+```
+bundle exec rails s
+```
+
+6. Откройте в браузере:
+
+```
+http://localhost:3000
+```
